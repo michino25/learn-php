@@ -48,7 +48,7 @@
     ?>
 
     <div>
-        Kết quả hàm 
+        Kết quả 
         <?php
         echo "Hàm tổng ".addNumber($_b, $C);
         ?>
