@@ -67,6 +67,6 @@ E-mail: <input type="text" name="email"><br>
 
 <?php
 ?>
-
+<!-- xin chào -->
 </body>
 </html>
