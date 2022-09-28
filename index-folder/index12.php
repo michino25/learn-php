@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PHP slide 1 & 2</title>
 </head>
 <body>
     <?php
@@ -44,6 +44,19 @@
         }
         echo "Hàm tổng ".addNumber($_b, $C);
 
+        function InValue ($a, $b) {
+            echo "<li style='background-color:".makeRGB()."'><a href='test_get.php?P=".$a."&Q=".$b."'>$a+$b</a></li>";
+        }
+
+        echo (isset($z))?$z:"Chưa khởi tạo z"."<br/>";
+        $z = 5;
+        echo "Biến z đã khởi tạo ? ".(isset($z))?$z:"Chưa"."<br/>";
+        unset($z);
+        echo (isset($z))?"Biến z đã giải phóng ? Chưa":"Biến z đã giải phóng ? Rồi"."<br/>";
+
+        function makeRGB() {
+            return "rgb(".rand(0,255).",".rand(0,255).",".rand(0,255).")";
+        }
 
     ?>
 
@@ -54,15 +67,17 @@
         ?>
     </div>
 
-<input type="text" name="item">
+    <ul>
+        <?php
+        InValue(3, 5);
+        ?>
+    </ul>
 
-<a href="test_get.php?subject=PH+P&web=W3schools.com">Test $GET</a>
-
-<form action="welcome.php" method="post">
+<!-- <form action="welcome.php" method="post">
 Name: <input type="text" name="name"><br>
 E-mail: <input type="text" name="email"><br>
 <input type="submit">
-</form>
+</form> -->
 
 
 <?php

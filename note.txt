@@ -1,0 +1,9 @@
+Chia nhỏ module bằng
+include // khi không bắt buộc
+require // khi bắt buộc, không có sẽ lỗi
+
+khi include hoặc require 2 lần sẽ lỗi => có thêm once để tránh lỗi
+include_once
+require_once
+
+If switch for while dowhile tương tự c#
