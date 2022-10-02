@@ -11,23 +11,23 @@
                 taoKetNoi($link);
                 $result = NULL;
                 if(isset($_GET['keyword'])) {
-                    $result = chayTruyVanTraVeDL($link, "select *from tbl_sanpham where ten like '%".$_GET['keyword']."%'");
+                    $result = chayTruyVanTraVeDL($link, "select *from tb_product where name like '%".$_GET['keyword']."%'");
                     while($rows = mysqli_fetch_object($result)) {
                         echo
                         "<div class='product'>
-                            <span>$rows->ten</span>
-                            <img src='$rows->mota' width='100px' height='100px'>
-                            <span>$rows->gia</span>
+                            <span>$rows->name</span>
+                            <img src='$rows->img' width='100px' height='100px'>
+                            <span>$rows->price</span>
                         </div>";
                     }
                 }else {
-                    $result = chayTruyVanTraVeDL($link,"select *from tbl_sanpham");
+                    $result = chayTruyVanTraVeDL($link,"select *from tb_product");
                     while($rows = mysqli_fetch_object($result)) {
                         echo
                         "<div class='product'>
-                            <span>$rows->ten</span>
-                            <img src='$rows->mota' width='100px' height='100px'>
-                            <span>$rows->gia</span>
+                            <span>$rows->name</span>
+                            <img src='$rows->img' width='100px' height='100px'>
+                            <span>$rows->price</span>
                         </div>";
                     }
                 }
