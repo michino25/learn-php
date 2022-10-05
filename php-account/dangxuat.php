@@ -1,14 +1,25 @@
-<?php
-session_start();
-require_once "db _module.php";
-require_once "users_module.php";
-$link = NULL;
-taoKetNoi($link);
-if (dangxuat()) {
-    giaiPhongBoNho($link, true);
-    header("Location: dangki.php");
-} else {
-    giaiPhongBoNho($link, true);
-    header("content-type: text/html; charset=utf8");
-    echo "Không thể đăng xuất!";
-}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <?php include_once "menu.php";
+    session_start();
+    require_once "db_module.php";
+    require_once "users_module.php";
+    if (dangxuat()) {
+        header("Location: dangki.php");
+    } else {
+        header("content-type: text/html; charset=utf8");
+        echo "Bạn chưa đăng nhập!";
+    }
+    ?>
+</body>
+
+</html>

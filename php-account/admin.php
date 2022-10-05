@@ -11,12 +11,12 @@
 <body>
     <?php include_once "menu.php";
 
-    if (!isset($_SESSION['username']))
+    if (!isset($_SESSION['account']))
         header("Location: dangki.php");
     ?>
     <div>
         <h1>Đây là trang admin!</h1>
-        <h2>Bạn chỉ vào được trang này sau khi đã đăng nhập!</h2>
+        <p>Chào mừng <?php echo $_SESSION['account']['fullname']; ?> quay trở lại</p>
     </div>
     <style>
         body {
@@ -30,7 +30,7 @@
         }
 
         h1,
-        h2 {
+        p {
             text-align: center;
         }
     </style>

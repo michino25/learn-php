@@ -1,30 +1,39 @@
 <?php
-function dangki($link, $username, $password, $email)
+function dangki($username, $password, $fullname, $email)
 {
-    chayTruyVanKhongTraVeDL(
-        $link,
-        "insert into tbl_users values( NULL,
-        '" . mysqli_real_escape_string($link, $username) . "',
-        *" . md5($password) . "',
+    executeNonQuery(
+        "INSERT INTO tb_user VALUES( NULL,
+        '" . stringSQL($username) . "',
+        '" . md5($password) . "',
+        '" . stringSQL($fullname) . "',
         '" . $email . "'
         )"
     );
 }
-function dangnhap($link, $username, $password)
+
+function dangnhap($username, $password)
 {
-    $result = chayTruyVanTraVeDL(
-        $link,
-        "select count(*) from tbl_users where username='" . mysqli_real_escape_string($link, $username) . "'
+    $account = "";
+    $result = executeQuery(
+        "SELECT * FROM tb_user WHERE username='" . stringSQL($username) . "'
         and password='" . md5($password) . "'"
     );
     $row = mysqli_fetch_row($result);
     mysqli_free_result($result);
-    if ($row[0] > 0) {
-        $_SESSION['username'] = $username;
+
+    if ($row != NULL) {
+        $account = array(
+            "id" => $row[0],
+            "username" => $row[1],
+            "fullname" => $row[3],
+            "email" => $row[4]
+        );
+        $_SESSION['account'] = $account;
         return true;
     } else
         return false;
 }
+
 function dangxuat()
 {
     if (isset($_SESSION['username'])) {

@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 05, 2022 at 01:31 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 05, 2022 lúc 06:08 AM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,72 +18,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_michat`
+-- Cơ sở dữ liệu: `db_michio`
 --
-DROP DATABASE IF EXISTS `db_michat`;
-CREATE DATABASE IF NOT EXISTS `db_michat` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `db_michat`;
+CREATE DATABASE IF NOT EXISTS `db_michio` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `db_michio`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
---
-
-DROP TABLE IF EXISTS `tb_user`;
-CREATE TABLE `tb_user` (
-  `id` int(11) NOT NULL,
-  `username` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` text COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tb_user`
---
-
-INSERT INTO `tb_user` (`id`, `username`, `password`, `fullname`, `email`) VALUES
-(1, 'nntrung25', '188eac7bfb03efb1cf53b091724c54cb', 'Nguyễn Như Trung', 'nguyennhutrung.nnt@gmail.com'),
-(2, 'saladdays', '4547f9448a5483e990f842d3939585f1', 'Phạm Hà Mẫn Nhi', 'phamhamannhi16@gmail.com'),
-(3, 'tindao', 'a39fa98c9be3f9f29e76eeaff4228030', 'Đào Phạm Trung Tín', 'tin.daophamtrung@gmail.com'),
-(4, 'hoaiphuong', 'a7b3c7a61992d4086b0cc329219df6b4', 'Trần Hoài Phương', 'phuong090909@gmail.com'),
-(5, 'huuloi', '2c3065cd74cd0c24e09f19d388b13dad', 'Nguyễn Hữu Lợi', 'huuloi@gmail.com'),
-(6, 'ngocphuong', '06dc67758e6bd6f8b089aee4a915441e', 'Trần Đỗ Ngọc Phương', 'phuongdo@st.ueh.edu.vn'),
-(8, 'kdung', '5836e28932236d44b42d2363e2e9ca7f', 'Nguyễn Kim Dung', 'dung.nguyenkimdung@gmail.com'),
-(9, 'minhhai', '70a0f9894d2df18c2507d231a94caee8', 'Trịnh Minh Hải', NULL);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `tb_user`
---
-ALTER TABLE `tb_user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tb_user`
---
-ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- Database: `db_product`
---
-DROP DATABASE IF EXISTS `db_product`;
-CREATE DATABASE IF NOT EXISTS `db_product` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `db_product`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_category`
+-- Cấu trúc bảng cho bảng `tb_category`
 --
 
 DROP TABLE IF EXISTS `tb_category`;
@@ -93,7 +36,7 @@ CREATE TABLE `tb_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_category`
+-- Đang đổ dữ liệu cho bảng `tb_category`
 --
 
 INSERT INTO `tb_category` (`id`, `name`) VALUES
@@ -106,7 +49,7 @@ INSERT INTO `tb_category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_product`
+-- Cấu trúc bảng cho bảng `tb_product`
 --
 
 DROP TABLE IF EXISTS `tb_product`;
@@ -120,7 +63,7 @@ CREATE TABLE `tb_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_product`
+-- Đang đổ dữ liệu cho bảng `tb_product`
 --
 
 INSERT INTO `tb_product` (`id`, `name`, `img`, `desc`, `price`, `id_category`) VALUES
@@ -146,39 +89,81 @@ INSERT INTO `tb_product` (`id`, `name`, `img`, `desc`, `price`, `id_category`) V
 (20, 'Samsung Galaxy Watch 4', 'https://cdn.tgdd.vn/Products/Images/7077/278317/samsung-galaxy-watch-4-classic-46mm-den-600x600.jpg', 'Ấn tượng bởi vẻ đẹp cổ điển, thanh lịch, khung viền được chế tác từ thép không gỉ cao cấp', 6190000, 4),
 (21, 'Google Tivi Sony 4K', 'https://cdn.nguyenkimmall.com/images/detailed/746/10049381-google-tivi-sony-4k-50-inch-kd-50x80j-vn3-1.jpg', 'Google Tivi Sony 4K cho chất lượng hình ảnh sắc nét, độ bão hòa cao, hình ảnh mượt mà, hạn chế nhòe hình nhờ công nghệ nâng cấp chuẩn hình ảnh 4K', 17900000, 5);
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Cấu trúc bảng cho bảng `tb_user`
+--
+
+DROP TABLE IF EXISTS `tb_user`;
+CREATE TABLE `tb_user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `fullname` text COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tb_user`
+--
+
+INSERT INTO `tb_user` (`id`, `username`, `password`, `fullname`, `email`) VALUES
+(1, 'nntrung25', '188eac7bfb03efb1cf53b091724c54cb', 'Nguyễn Như Trung', 'nguyennhutrung.nnt@gmail.com'),
+(2, 'saladdays', '4547f9448a5483e990f842d3939585f1', 'Phạm Hà Mẫn Nhi', 'phamhamannhi16@gmail.com'),
+(3, 'tindao', 'a39fa98c9be3f9f29e76eeaff4228030', 'Đào Phạm Trung Tín', 'tin.daophamtrung@gmail.com'),
+(4, 'hoaiphuong', 'a7b3c7a61992d4086b0cc329219df6b4', 'Trần Hoài Phương', 'phuong090909@gmail.com'),
+(5, 'huuloi', '2c3065cd74cd0c24e09f19d388b13dad', 'Nguyễn Hữu Lợi', 'huuloi@gmail.com'),
+(6, 'ngocphuong', '06dc67758e6bd6f8b089aee4a915441e', 'Trần Đỗ Ngọc Phương', 'phuongdo@st.ueh.edu.vn'),
+(8, 'kdung', '5836e28932236d44b42d2363e2e9ca7f', 'Nguyễn Kim Dung', 'dung.nguyenkimdung@gmail.com'),
+(9, 'minhhai', '70a0f9894d2df18c2507d231a94caee8', 'Trịnh Minh Hải', NULL);
+
+--
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `tb_category`
+-- Chỉ mục cho bảng `tb_category`
 --
 ALTER TABLE `tb_category`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indexes for table `tb_product`
+-- Chỉ mục cho bảng `tb_product`
 --
 ALTER TABLE `tb_product`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Chỉ mục cho bảng `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `tb_category`
+-- AUTO_INCREMENT cho bảng `tb_category`
 --
 ALTER TABLE `tb_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_product`
+-- AUTO_INCREMENT cho bảng `tb_product`
 --
 ALTER TABLE `tb_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT cho bảng `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
