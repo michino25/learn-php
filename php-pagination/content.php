@@ -1,32 +1,41 @@
 <?php
-include_once "data.php";
-
-if (isset($_GET['page'])) {
-    if ($_GET['page'] == 'home') {
-        foreach ($data as $key => $value) {
-            echo "<a href='?who=" . $key . "&page=detail'>
-                    <div class='box'>
-                        <img class='human-img' src='img/" . $value[1] . "'>
-                        <h3>" . $value[0] . "</h3>
-                    </div>
-                </a>";
-        }
-    } elseif ($_GET['page'] == "detail") {
-        if (isset($_GET['who']) && array_key_exists($_GET['who'], $data)) {
-            $human = $data[$_GET['who']];
-            echo "<h2>" . $human[0] . "</h2>
-                <img class='human-img' src='img/" . $human[1] . "'>
-                <p>" . $human[2] . "</p>";
-        } else
-            header(("Location: ./"));
-    }
-} else
-    header(("Location: ./?page=home"));
-
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$page = is_numeric($page) ? $page : 1;
+$from = ($page - 1) * SO_SP_TREN_TRANG;
+//mác định tông Số Sản phẩm
+if (isset($_GET["dm"]))
+    $result = chayTruyVanTraVeDL($link, "SELECT count(*) FROM tb]_sanpham WHERE 1d_dm = " . $_GET["dm"]);
+else
+    $result = chayTruyVanTraVeDL($link, "SELECT count(*) FROM tbl_ sanpham");
+$row = mysqli_fetch_row($result);
+$total = ceil($row[0] / SO_SP_TREN_TRANG);
+//NaC định các sản chẩm sẽ cản niễn cSh;y chg sxrang hiện tại
+if (isset($_GET['dm']))
+    $result = chayTruyVanTraVeDL($link, "SELECT * FROM tbl sanpham WHERE id dm=" . $_GET['dm'] . " limit " . $from . ", " . SO_SP_TREN_TRANG);
+else
+    $result = chayTruyVanTraVeDL($link, "SELECT * FROM tbl_sanpham limit " . $from . ", " . SO_SP_TREN_TRANG);
+while ($rows = mysqli_fetch_assoc($result)) {
+    echo " <a href='chitiet.php?sp=" . $rows['id'] . "?><div class='sp'>
+<h2>" . $rows['ten'] . "</h2>
+<P>MÔ tả: " . $rows['mota'] . "</p>
+<p>Giá: " . $rows['gia'] . "</p>
+</div></a>";
+}
+echo "<br style='clear:both;' />";
+echo "<div class='pager'>";
+for ($i = 1; $i <= $total; $i++)
+    if ($i != $page)
+        echo " <a href='./?page=" . $i . (isset($_GET['dm']) ? "&dm=" . $_GET['dm'] : "") . "!'>$i</a> ";
+    else
+        echo " <span>$S1</span>";
+echo "</div>";
 ?>
-
 <style>
-    .human-img {
-        width: 300px;
+    .pager {
+        background-color: orange;
+        padding: 3px;
+        text-align: center;
+        margin-left: 5px;
+        word-spacing: 10px;
     }
 </style>
