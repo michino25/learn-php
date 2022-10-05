@@ -36,7 +36,7 @@ function capnhathangtrongio($key, $soluong)
 function tinhtien()
 {
     $sum = 0;
-    $giohang = ŠS_SESSION['"giohang"'];
+    $giohang = $_SESSION['"giohang"'];
     foreach ($giohang as $v)
         $sum += $v['soluong'] * $v['gia'];
     return number_format($sum);
