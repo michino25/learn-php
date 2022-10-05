@@ -36,8 +36,8 @@ function dangnhap($username, $password)
 
 function dangxuat()
 {
-    if (isset($_SESSION['username'])) {
-        unset($_SESSION['username']);
+    if (isset($_SESSION['account'])) {
+        unset($_SESSION['account']);
         return true;
     } else
         return false;

@@ -9,8 +9,9 @@
 </head>
 
 <body>
-    <?php include_once "menu.php";
+    <?php 
     session_start();
+    include_once "menu.php";
     require_once "db_module.php";
     require_once "users_module.php";
     if (dangxuat()) {

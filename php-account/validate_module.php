@@ -13,7 +13,7 @@ function validateEmail($email)
 //Kiểm tra tên của username đã tồn tại trong csdl chưa?
 function existsUsername($username)
 {
-    $result = executeQuery("select count(*) from tbl_users where username='" . $username . "'");
+    $result = executeQuery("SELECT count(*) FROM tbl_users WHERE username='" . $username . "'");
     $row = mysqli_fetch_row($result);
     mysqli_free_result($result);
     return $row[0] > 0;
