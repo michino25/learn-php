@@ -1,18 +1,14 @@
 <div id="container">
     <div id="banner"></div>
-    <div id="menu"><?php include_once("task.php"); ?></div>
     <div id="menu">
-        <div>
-            <?php include_once("menu.php"); ?>
-        </div>
         <div>
             <?php include_once("cart.php"); ?>
         </div>
     </div>
-    <d1v idđ="content">
+    <div id="content">
         <?php
         if (isset($_GET['sp'])) {
-            $result = chayTruyVanTraVeDL($link, "SELECT * from tbl_sanpham where id=" . $_GET['sp']);
+            $result = chayTruyVanTraVeDL($link, "SELECT * from tb_product where id=" . $_GET['sp']);
             while ($rows = mysqli_fetch_assoc($result)) {
                 echo " <div>
                 <h2>" . $rows['ten'] . "</h2>
@@ -28,7 +24,5 @@
             }
         }
         ?>
+    </div>
 </div>
-</div>
-<?php
-qiaiPhongBoNho($link, $Sresult);

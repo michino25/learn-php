@@ -1,8 +1,8 @@
 <?php
-/* Câu trúc sản phẩm của mảng Lưu giỏ hàng:
-$giohang = array($key=>array(id, ten, so`ucndg, scngia...))
-Sessicn gic hàng:
-$_SESSION.'g:chang'; = $q:chang
+/* Câu trúc sản phẩm của mảng lưu giỏ hàng:
+$giohang = array($key=>array(id, ten, soluong, scngia...))
+Session gic hàng:
+$_SESSION['giohang'] = $giohang
 */
 function themhangvaogdo($hang)
 {

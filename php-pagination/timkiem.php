@@ -11,28 +11,16 @@
 <body>
     <?php
     require_once("db_module.php");
-    $link = NULL;
-    taoKetNoi($link);
     ?>
     <div id="container">
         <div id="banner"></div>
-        <điv id="menu"><?php include_once("task.php"); ?>
+        <?php require_once("task.php"); ?>
     </div>
-    <div id="menu">
-        <div>
-            <?php include_once("menu.php"); ?>
-        </div>
-        <div>
-            <?php include_once("cart.php"); ?>
-        </div>
-    </div>
+
     <div id="content">
         <?php include_once("content_tk.php"); ?>
     </div>
     </div>
-    <?php
-    giaiPhongBoNho($link, $result);
-    ?>
 </body>
 
 </html>
