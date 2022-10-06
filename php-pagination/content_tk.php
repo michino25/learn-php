@@ -9,7 +9,7 @@ else
     $result = chayTruyVanTraVeDL($link, "SELECT count(*) from tbì_sanpham");
 $row = mysqli_fetch_row($result);
 $totral = ceil($row[0] / SO_SP_TREN_TRANG);
-//NãC= định các sản chấm sẽ căn niễn thị cha trang hiện tại
+//Mặc định các sản chấm sẽ căn niễn thị cha trang hiện tại
 if (isset($_GET['keyword']))
     $result = chayTruyVanTraVeDL($link, "SELECT * from tbl_sanpham where ten like '%" . $_GET['keyword'] . "%' limit" . $from . ", " . SO_SP_TREN_TRANG);
 else
