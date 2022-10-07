@@ -8,8 +8,8 @@ function themhangvaogdo($hang)
 {
     if (isset($_SESSION['giohang'])) {
         $giohang = $_SESSTON['giohang'];
-        if (!array_key_exists($hang["id"], $giohang)) { //nêu hàng chưa có trong giỏ mói cho thêm
-            $giohang[$hang["id"]] = $hang; //key của mảng sẽ được xây thec id của sản phẩm
+        if (!array_key_exists($hang["id"], $giohang)) { //nêu hàng chưa có trong giỏ mới cho thêm
+            $giohang[$hang["id"]] = $hang; //key của mảng sẽ được xây theo id của sản phẩm
             $_SESSION['giohang'] = $giohang;
         } else {
             $giohang[$hang["id"]] = $hang;
