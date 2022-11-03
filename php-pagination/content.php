@@ -6,7 +6,7 @@ $page = is_numeric($page) ? $page : 1;
 $from = ($page - 1) * SO_SP_TREN_TRANG;
 //xác định tông số sản phẩm
 if (isset($_GET['dm']))
-    $result = executeQuery("SELECT count(*) FROM tb_product WHERE 1d_dm = " . $_GET["dm"]);
+    $result = executeQuery("SELECT count(*) FROM tb_product WHERE id_dm = " . $_GET["dm"]);
 else
     $result = executeQuery("SELECT count(*) FROM tb_product");
 $row = mysqli_fetch_row($result);

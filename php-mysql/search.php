@@ -13,20 +13,20 @@
             while ($rows = mysqli_fetch_object($result)) {
                 echo
                 "<div class='product'>
-                    span>$rows->name</span>
-                    img src='$rows->img' width='100px' height='100px'>
-                    span>$rows->price</span>
-                /div>";
+                    <span>$rows->name</span>
+                    <img src='$rows->img' width='100px' height='100px'>
+                    <span>$rows->price</span>
+                </div>";
             }
         } else {
             $result = executeQuery("select *from tb_product");
             while ($rows = mysqli_fetch_object($result)) {
                 echo
                 "<div class='product'>
-                    span>$rows->name</span>
-                    img src='$rows->img' width='100px' height='100px'>
-                    span>$rows->price</span>
-                /div>";
+                    <span>$rows->name</span>
+                    <img src='$rows->img' width='100px' height='100px'>
+                    <span>$rows->price</span>
+                </div>";
             }
         }
         ?>
