@@ -27,8 +27,8 @@ imageantialias($image, true);
 $colors = [];
 
 $red = rand(125, 175);
-$green = rand(125, 175);
-$blue = rand(125, 175);
+$green = rand(155, 225);
+$blue = rand(155, 225);
 
 for ($i = 0; $i < 5; $i++) {
     $colors[] = imagecolorallocate($image, $red - 20 * $i, $green - 20 * $i, $blue - 20 * $i);

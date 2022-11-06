@@ -43,7 +43,15 @@
             </div>
         </div><br style="clear:both;" />
         <div class="img_row frm_row">
-            <img src="captcha.php" /><br style="clear:both;" />
+
+            <?php
+            $url = 'http://localhost/learn-php/php-account/captcha.php';
+            $img = 'captcha_img.png';
+            file_put_contents($img, file_get_contents($url));
+            ?>
+
+            <img src="captcha_img.png" /><br style="clear:both;" />
+
             <div class="cls_caption">Nhập Captcha:</div>
             <div class="cls_input">
                 <input type="text" name="captcha" />
