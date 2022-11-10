@@ -1,7 +1,7 @@
 <?php
 require_once "config.php";
 
-function connect(&$link)
+function taoKetNoi(&$link)
 {
 	$link = mysqli_connect(HOST, USER, PASSWORD, DB);
 	if (mysqli_connect_errno()) {
@@ -9,27 +9,6 @@ function connect(&$link)
 		exit();
 	}
 }
-
-function queryData($link, $q)
-{
-	$result = mysqli_query($link, $q);
-	return $result;
-}
-
-function queryNoData($link, $q)
-{
-	$result = mysqli_query($link, $q);
-	return $result;
-}
-
-// function dispose($link, $result)
-// {
-// 	try {
-// 		mysqli_close($link);
-// 		mysqli_free_result($result);
-// 	} catch (TypeError $e) {
-// 	}
-// }
 
 function dispose($link)
 {
@@ -39,29 +18,11 @@ function dispose($link)
 	}
 }
 
-function executeNonQuery($q)
-{
-	$link = NULL;
-	connect($link);
-	$result = queryNoData($link, $q);
-	dispose($link);
-	return $result;
-}
-
 function executeQuery($q)
 {
 	$link = NULL;
-	connect($link);
-	$result = queryData($link, $q);
+	taoKetNoi($link);
+	$result = mysqli_query($link, $q);
 	dispose($link);
 	return $result;
-}
-
-function stringSQL($string)
-{
-	$link = NULL;
-	connect($link);
-	mysqli_real_escape_string($link, $string);
-	dispose($link);
-	return $string;
 }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function themhangvaogio($hang)
 {
@@ -22,7 +23,6 @@ function xoahangkhoigio($key)
     }
 };
 
-
 function xoahet()
 {
     if (isset($_SESSION['giohang'])) {
@@ -41,6 +41,7 @@ function capnhathangtronggio($key, $soluong)
         $_SESSION['giohang'] = $giohang;
     }
 }
+
 function tinhtien()
 {
     $sum = 0;

@@ -8,11 +8,8 @@
 
 <body>
 
-    <?php
-    include_once "db_trifarm.php";
-    $link = null;
-    taoKetNoi($link);
-    ?>
+    <?php include_once "db_module.php"; ?>
+    <?php include_once "cartBtn.php" ?>
 
     <div class="container">
         <div class="nav-side">
@@ -20,19 +17,17 @@
         </div>
 
         <div class="content">
-        
             <?php include_once "content.php" ?>
         </div>
 
     </div>
 
-    <?php dispose($link, $result); ?>
-
     <style>
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            /* align-items: center; */
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
