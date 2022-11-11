@@ -29,7 +29,7 @@
 
                             <form class='add-product-form' method='post' action='cartController.php'>
                                 <input type='number' name='soluong' min='1' value='1'>
-                                <input type='submit' name='action' value='Thêm Vào Giỏ Hàng'>
+                                <input type='submit' name='action' value='Thêm Vào Giỏ'>
 
                                 <input type='hidden' name='id' value='" . $rows['id'] . "'>
                                 <input type='hidden' name='img' value='" . $rows['img'] . "'>

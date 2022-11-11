@@ -1,0 +1,35 @@
+index
+	hiển thị trang chủ danh sách sản phẩm + giỏ hàng
+
+content
+	danh sách sản phẩm
+
+detail
+	hiển thị detail (+ nút thêm giỏ hàng)
+
+cartController
+	controller cart
+
+cart_model
+	xử lý model database (khi đăng nhập) hoặc sesstion
+
+cartView
+	xem giỏ hàng
+
+
+----
+
+chỉnh lại cách thêm hàng (thêm id)
+dùng cookie để lưu
+
+giao diện
+
+https://cdn.dribbble.com/users/170412/screenshots/17776489/media/a8be4bbd4e96b9a7666d52bd8c8efd05.png?compress=1&resize=800x600&vertical=top
+
+https://cdn.dribbble.com/userupload/3820090/file/original-4fb4d38c0dc72c80e2e22385bb477260.png?compress=1&resize=1024x768
+
+Mobile responsive
+
+Bỏ phần giá tổng của hàng
+
+https://cdn.dribbble.com/users/2671670/screenshots/17205827/media/7dbc01c09ff4c175274f05a475a0c506.png?compress=1&resize=800x600&vertical=top

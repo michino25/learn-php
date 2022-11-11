@@ -1,5 +1,4 @@
 <?php
-include_once("_modelCart.php");
 
 $giohang = isset($_SESSION['giohang']) ? $_SESSION['giohang'] : array();
 

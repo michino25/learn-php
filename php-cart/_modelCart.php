@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-function themhangvaogio($hang)
+function add($hang)
 {
     if (isset($_SESSION['giohang'])) {
         $giohang = $_SESSION['giohang'];
@@ -14,7 +14,7 @@ function themhangvaogio($hang)
     }
 }
 
-function xoahangkhoigio($key)
+function remove($key)
 {
     if (isset($_SESSION['giohang'])) {
         $giohang = $_SESSION['giohang'];
@@ -23,7 +23,7 @@ function xoahangkhoigio($key)
     }
 };
 
-function xoahet()
+function delete()
 {
     if (isset($_SESSION['giohang'])) {
         $giohang = $_SESSION['giohang'];
@@ -33,7 +33,7 @@ function xoahet()
     $_SESSION['giohang'] = $giohang;
 }
 
-function capnhathangtronggio($key, $soluong)
+function update($key, $soluong)
 {
     if (isset($_SESSION['giohang'])) {
         $giohang = $_SESSION['giohang'];
@@ -42,7 +42,7 @@ function capnhathangtronggio($key, $soluong)
     }
 }
 
-function tinhtien()
+function total()
 {
     $sum = 0;
     $giohang = $_SESSION['giohang'];
