@@ -19,8 +19,10 @@ cartView
 
 ----
 
+chuyển giao diện lên view
 chỉnh lại cách thêm hàng (thêm id)
 dùng cookie để lưu
+responsive trang view
 
 giao diện
 
