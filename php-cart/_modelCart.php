@@ -1,52 +1,35 @@
 <?php
-session_start();
 
-function add($hang)
+function add($id, $quantity)
 {
-    if (isset($_SESSION['giohang'])) {
-        $giohang = $_SESSION['giohang'];
-        if (!array_key_exists($hang["id"], $giohang))
-            $giohang[$hang["id"]] = $hang;
-        $_SESSION['giohang'] = $giohang;
-    } else {
-        $giohang[$hang["id"]] = $hang;
-        $_SESSION['giohang'] = $giohang;
+    if (isset($_COOKIE['cart'])) {
+        $cart = json_decode($_COOKIE['cart'], true);
+        if (!isset($cart[$id])) {
+            $cart[$id] = $quantity;
+        } else {
+            $cart[$id] += $quantity;
+        }
+
+        setcookie('cart', json_encode($cart), '/', time() + 86400);
     }
 }
 
-function remove($key)
+function remove($id)
 {
-    if (isset($_SESSION['giohang'])) {
-        $giohang = $_SESSION['giohang'];
-        unset($giohang[$key]);
-        $_SESSION['giohang'] = $giohang;
+    if (isset($_COOKIE['cart'])) {
+        $cart = json_decode($_COOKIE['cart'], true);
+
+        unset($cart[$id]);
+        setcookie('cart', json_encode($cart), '/', time() + 86400);
     }
 };
 
-function delete()
+function update($id, $quantity)
 {
-    if (isset($_SESSION['giohang'])) {
-        $giohang = $_SESSION['giohang'];
-    };
-    foreach ($giohang as $key => $v)
-        unset($giohang[$key]);
-    $_SESSION['giohang'] = $giohang;
-}
+    if (isset($_COOKIE['cart'])) {
+        $cart = json_decode($_COOKIE['cart'], true);
 
-function update($key, $soluong)
-{
-    if (isset($_SESSION['giohang'])) {
-        $giohang = $_SESSION['giohang'];
-        $giohang[$key]['soluong'] = $soluong;
-        $_SESSION['giohang'] = $giohang;
+        $cart[$id]['quantity'] = $quantity;
+        setcookie('cart', json_encode($cart), '/', time() + 86400);
     }
-}
-
-function total()
-{
-    $sum = 0;
-    $giohang = $_SESSION['giohang'];
-    foreach ($giohang as $v)
-        $sum += $v['soluong'] * $v['price'];
-    return number_format($sum);
 }

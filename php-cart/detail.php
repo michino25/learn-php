@@ -1,4 +1,6 @@
-<?php require_once("db_module.php"); ?>
+<?php
+require_once("db_module.php");
+?>
 
 <html lang="en">
 
@@ -9,6 +11,7 @@
 </head>
 
 <body>
+    <?php include_once "cartBtn.php" ?>
     <div class="container">
         <div class="nav-side">
             <?php include_once "menu.php" ?>
@@ -28,13 +31,9 @@
                             <p>" . $rows['desc'] . "</p>
 
                             <form class='add-product-form' method='post' action='cartController.php'>
-                                <input type='number' name='soluong' min='1' value='1'>
-                                <input type='submit' name='action' value='Thêm Vào Giỏ'>
-
+                                <input type='number' name='quantity' min='1' value='1'>
                                 <input type='hidden' name='id' value='" . $rows['id'] . "'>
-                                <input type='hidden' name='img' value='" . $rows['img'] . "'>
-                                <input type='hidden' name='name' value='" . $rows['name'] . "'>
-                                <input type='hidden' name='price' value='" .  $rows['price'] . "'>    
+                                <input type='submit' name='action' value='Thêm Vào Giỏ'>
                             </form>
                         </div>
                     </div>
@@ -50,7 +49,9 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
         }
 
         .container {

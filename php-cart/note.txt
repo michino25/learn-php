@@ -19,12 +19,7 @@ cartView
 
 ----
 
-chuyển giao diện lên view
-chỉnh lại cách thêm hàng (thêm id)
-dùng cookie để lưu
-responsive trang view
-
-giao diện
+giao diện tham khảo 
 
 https://cdn.dribbble.com/users/170412/screenshots/17776489/media/a8be4bbd4e96b9a7666d52bd8c8efd05.png?compress=1&resize=800x600&vertical=top
 

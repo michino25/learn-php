@@ -1,17 +1,44 @@
-<?php
+<div class="header">
+    <span></span>
+    <a class='home' href="./">Trang chủ</a>
 
-$giohang = isset($_SESSION['giohang']) ? $_SESSION['giohang'] : array();
+    <?php
+    if (!isset($_COOKIE['cart']))
+        setcookie('cart', json_encode([]), time() + 86400); // cookie sống được 1 ngày thì bị huỷ
 
-echo "<a class='cart-btn' href='./cartView.php'>
+    echo "<a class='cart-btn' href='./cartView.php'>
         Giỏ hàng
-        <span>" . count($giohang) . "</span>
+        <span>" . count(json_decode($_COOKIE['cart'], true)) . "</span>
     </a>";
-?>
+    ?>
+</div>
 
 <style>
+    .header {
+        border-bottom: 1px solid #ccc;
+        width: 100%;
+        display: flex;
+        padding-bottom: 8px;
+        text-align: center;
+        justify-content: space-between;
+        margin: 12px 0;
+    }
+
+    .home {
+        display: block;
+        padding: 8px 24px;
+        line-height: 38px;
+        text-decoration: none;
+        border: 1px solid rgba(0, 0, 255, 0.8);
+    }
+
+    .home:hover {
+        color: white;
+        background-color: rgba(0, 0, 255, 0.8);
+    }
+
     .cart-btn {
         display: block;
-        margin-left: auto;
         padding: 16px 20px;
         text-decoration: none;
         border-radius: 26px;
