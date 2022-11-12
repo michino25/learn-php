@@ -1,3 +1,8 @@
+:root {
+    --primary-color: #098118;
+    --primary-light-color: #2aad3b;
+}
+
 body {
     background: #efefef;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -298,6 +303,11 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 0.9;
 }
 
+.checkout-btn:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 .home-btn {
     margin-top: 12px;
     text-align: center;
@@ -313,6 +323,14 @@ input[type=number]::-webkit-outer-spin-button {
 .home-btn:hover {
     color: #098118;
     border: 1px solid #098118;
+}
+
+.cart-no-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {

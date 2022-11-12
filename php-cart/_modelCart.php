@@ -10,7 +10,8 @@ function add($id, $quantity)
             $cart[$id] += $quantity;
         }
 
-        setcookie('cart', json_encode($cart), '/', time() + 86400);
+        setcookie('cart', '', time() - 1);
+        setcookie('cart', json_encode($cart), time() + 86400);
     }
 }
 
@@ -20,7 +21,9 @@ function remove($id)
         $cart = json_decode($_COOKIE['cart'], true);
 
         unset($cart[$id]);
-        setcookie('cart', json_encode($cart), '/', time() + 86400);
+
+        setcookie('cart', '', time() - 1);
+        setcookie('cart', json_encode($cart), time() + 86400);
     }
 };
 
@@ -30,6 +33,8 @@ function update($id, $quantity)
         $cart = json_decode($_COOKIE['cart'], true);
 
         $cart[$id]['quantity'] = $quantity;
-        setcookie('cart', json_encode($cart), '/', time() + 86400);
+
+        setcookie('cart', '', time() - 1);
+        setcookie('cart', json_encode($cart), time() + 86400);
     }
 }
