@@ -8,7 +8,7 @@
 
 <body>
 
-    <?php include_once "db_module.php"; ?>
+    <?php include_once "../db_module.php"; ?>
     <?php include_once "cartBtn.php" ?>
 
     <div class="container">

@@ -7,7 +7,7 @@
     </form>
     <div>
         <?php
-        include_once "db_module.php";
+        include_once "../db_module.php";
         if (isset($_GET['keyword'])) {
             $result = executeQuery("select *from tb_product where name like '%" . $_GET['keyword'] . "%'");
             while ($rows = mysqli_fetch_object($result)) {

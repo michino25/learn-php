@@ -2,7 +2,7 @@
     <li><a class='menu-item' href="./">Tất cả sản phẩm</a></li>
 
     <?php
-    include_once "db_module.php";
+    include_once "../db_module.php";
     $result = executeQuery("select * from tb_category");
     while ($rows = mysqli_fetch_assoc($result)) {
         echo "<li><a class='menu-item' href=?id_dm=" . $rows['id'] . ">" . $rows['name'] . "</a></li>";

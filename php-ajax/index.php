@@ -12,7 +12,7 @@
     <form>
         <select name="users" onchange="showUser(this.value)">
             <?php
-            require_once("db_module.php");
+            require_once("../db_module.php");
             $result = executeQuery("SELECT id, fullname, email from tb_user");
             while ($rows = mysqli_fetch_assoc($result))
                 echo "<option value=" . $rows["id"] . ">" . $rows["fullname"] . "</option>";
@@ -22,20 +22,31 @@
     <br>
     <div id="txtHint"><b>Person info will be listed here...</b></div>
     <script>
-        function showUser(str) {
+        async function showUser(str) {
             if (str == "") {
                 document.getElementById("txtHint").innerHTML = "";
                 return;
             } else {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
-                    };
-                };
-                xmlhttp.open("GET", "getuser.php?id=" + str, true);
-                xmlhttp.send();
+                document.getElementById("txtHint").innerHTML =
+                    await ajaxQuery("GET", "getuser.php?id=" + str)
             };
+        }
+
+        function ajaxQuery(method, reqLink) {
+            return new Promise(function(resolve, reject) {
+                const objXMLHttpRequest = new XMLHttpRequest();
+                objXMLHttpRequest.onreadystatechange = function() {
+                    if (objXMLHttpRequest.readyState === 4) {
+                        if (objXMLHttpRequest.status == 200) {
+                            resolve(objXMLHttpRequest.responseText);
+                        } else {
+                            reject('Error Code: ' + objXMLHttpRequest.status + ' Error Message: ' + objXMLHttpRequest.statusText);
+                        }
+                    }
+                }
+                objXMLHttpRequest.open(method, reqLink);
+                objXMLHttpRequest.send();
+            });
         }
     </script>
 </body>

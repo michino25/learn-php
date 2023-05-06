@@ -1,6 +1,6 @@
 <?php
 require_once "config.php";
-require_once "db_module.php";
+require_once "../db_module.php";
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $page = is_numeric($page) ? $page : 1;
 $from = ($page - 1) * SO_SP_TREN_TRANG;
@@ -17,7 +17,7 @@ if (isset($_GET['keyword']))
 else
     $result = executeQuery("SELECT * from tb_product limit " . $from . ", " . SO_SP_TREN_TRANG);
 while ($rows = mysqli_fetch_assoc($result)) {
-    echo 
+    echo
     "<a href='./detail.php?id_product=" . $rows['id'] . "' class='product'>
         <div class='product-wrap'>    
             <span style='font-weight: 700;'>" . $rows['name'] . "</span>

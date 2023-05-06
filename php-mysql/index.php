@@ -9,7 +9,7 @@
 <body>
 
     <?php
-    include_once "db_module.php";
+    include_once "../db_module.php";
     $link = null;
     connect($link);
     ?>

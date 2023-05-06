@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    require_once("db_module.php");
+    require_once("../db_module.php");
     ?>
     <div id="container">
         <div id="banner"></div>

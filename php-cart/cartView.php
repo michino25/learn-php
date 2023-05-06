@@ -15,7 +15,7 @@
 <body>
     <?php
     include_once("_modelCart.php");
-    require_once("db_module.php");
+    require_once("../db_module.php");
     ?>
     <?php include_once "cartBtn.php" ?>
 

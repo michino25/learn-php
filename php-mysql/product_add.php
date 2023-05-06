@@ -11,7 +11,7 @@
 <body>
     <?php
 
-    require_once("db_module.php");
+    require_once("../db_module.php");
 
     if (
         isset($_POST['id_category'])

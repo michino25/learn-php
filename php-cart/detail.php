@@ -1,5 +1,5 @@
 <?php
-require_once("db_module.php");
+require_once("../db_module.php");
 ?>
 
 <html lang="en">

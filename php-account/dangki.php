@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +55,7 @@
 
             <div class="cls_caption">Nhập Captcha:</div>
             <div class="cls_input">
-                <input type="text" name="captcha" />
+                <input type="text" name="captcha" disabled />
             </div>
         </div><br style="clear:both;" />
         <div class=" “img_row">

@@ -1,4 +1,4 @@
-<?php require_once("db_module.php"); ?>
+<?php require_once("../db_module.php"); ?>
 <html lang="en">
 
 <head>

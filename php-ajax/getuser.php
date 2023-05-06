@@ -1,5 +1,5 @@
 <?php
-require_once("db_module.php");
+require_once("../db_module.php");
 if (isset($_GET["id"])) {
     echo "<table border='1px' width='50%'>
         <tr style='text-align:left'>
